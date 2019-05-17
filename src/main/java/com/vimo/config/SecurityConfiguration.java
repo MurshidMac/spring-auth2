@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
+    // Guide line https://developer.okta.com/blog/2019/05/15/spring-boot-login-options
+
     @Override
     public void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests().antMatchers("/public/**").permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login.html").failureUrl("/login-error.html").permitAll();
